@@ -44,4 +44,8 @@ class TaskDBRepository:
         
         return tasks
  
+    def create(self,name,due_date):
+        task = Task(name=name,due_date=due_date)
+        ORMTask.objects.get(name=name,due_date=due_date)
+        return task
         
