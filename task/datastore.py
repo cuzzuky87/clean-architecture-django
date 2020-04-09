@@ -48,4 +48,12 @@ class TaskDBRepository:
         task = Task(name=name,due_date=due_date)
         ORMTask.objects.get(name=name,due_date=due_date)
         return task
+
+    def postpone(self, id):
+        orm_task = ORMTask.objects.get(id = id)
+        task = self.decode_orm_task(orm_task)
+        task[0].postpone()
+        #update object
+
+        
         
